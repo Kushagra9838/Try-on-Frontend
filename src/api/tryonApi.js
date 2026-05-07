@@ -1,4 +1,4 @@
-const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const BASE_URL = process.env.REACT_APP_API_BASE_URL || "https://try-on-backend-production.up.railway.app";
 const TRYON_URL = BASE_URL + "/tryon";
 
 export const createTryon = async (customerPhotoPath, clothPhotoPath) => {
