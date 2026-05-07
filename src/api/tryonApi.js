@@ -1,7 +1,8 @@
-const BASE_URL = process.env.REACT_APP_API_BASE_URL + "/tryon";
+const BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const TRYON_URL = BASE_URL + "/tryon";
 
 export const createTryon = async (customerPhotoPath, clothPhotoPath) => {
-  const res = await fetch(BASE_URL, {
+  const res = await fetch(TRYON_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -15,7 +16,7 @@ export const createTryon = async (customerPhotoPath, clothPhotoPath) => {
 };
 
 export const getTryonResult = async (tryonId) => {
-  const res = await fetch(`${BASE_URL}/${tryonId}`);
+  const res = await fetch(`${TRYON_URL}/${tryonId}`);
 
   if (!res.ok) throw new Error("Failed to fetch result");
 
@@ -24,7 +25,7 @@ export const getTryonResult = async (tryonId) => {
 
 export const getPresignedUrl = async (fileName) => {
   const res = await fetch(
-    `http://localhost:3000/upload/presigned-url?fileName=${fileName}`
+    `${BASE_URL}/upload/presigned-url?fileName=${fileName}`
   );
   return res.json();
 };
