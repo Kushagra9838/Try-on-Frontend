@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000/tryon";
+const BASE_URL = process.env.REACT_APP_API_BASE_URL + "/tryon";
 
 export const createTryon = async (customerPhotoPath, clothPhotoPath) => {
   const res = await fetch(BASE_URL, {
